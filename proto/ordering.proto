@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./";
+
+service Ordering {
+    rpc MakeOrder (OrderInfo) returns (OrderStatus) {}
+}
+
+message OrderInfo {
+    string gameName = 1; //название игры, которую хочет заказчик.
+    string fio = 2; //ФИО заказчика
+
+}
+
+
+message OrderStatus {
+    bool Status = 1;
+}
