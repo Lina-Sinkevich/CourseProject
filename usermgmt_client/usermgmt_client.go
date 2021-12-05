@@ -37,5 +37,11 @@ func main() {
 			"Id: %d",
 			r.GetName(), r.GetAge(), r.GetId())
 	}
-
+	params := &pb.GetUsersParams{}
+	r,err := c.GetUsers(ctx, params)
+	if err != nil {
+		log.Fatalf("Couldn't recieve users: %v", err)
+	}
+	log.Print("\nUserList: \n")
+	log.Printf("r.GetUsers() %v", r.GetUsers())
 }
