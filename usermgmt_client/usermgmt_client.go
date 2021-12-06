@@ -24,8 +24,10 @@ func main() {
 	defer cancel()
 
 	var newUsers = make(map[string]int32)
-	newUsers["Andrew"] = 34
-	newUsers["Ann"] = 33
+	newUsers["bob"] = 34
+	newUsers["loh"] = 33
+	newUsers["doh"] = 19
+	newUsers["fuh"] = 6
 	for name, age := range newUsers {
 		r, err := c.CreateNewUser(ctx, &pb.NewUser{Name: name, Age: age})
 		if err!=nil{
@@ -43,5 +45,5 @@ func main() {
 		log.Fatalf("Couldn't recieve users: %v", err)
 	}
 	log.Print("\nUserList: \n")
-	log.Printf("r.GetUsers() %v", r.GetUsers())
+	log.Printf("r.GetUsers() %v\n", r.GetUsers())
 }
